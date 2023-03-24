@@ -1,5 +1,5 @@
 import React from 'react'
-import {Text, View, TouchableOpacity} from 'react-native'
+import {View, TouchableOpacity, StyleSheet} from 'react-native'
 import AudioPlayerButton from 'react-native-audio-player-button'
 
 import LabelComponent from './LabelComponent'
@@ -7,6 +7,7 @@ import {topLeft, left, right} from '../constants/card_constant'
 
 const AudioCardViewComponent = (props) => {
   const [playingUuid, setPlayingUuid] = React.useState(null)
+  const audioPosition = props.audioPosition || topLeft
 
   const renderAudioBtn = () => {
     const audioBtn = <AudioPlayerButton
@@ -14,40 +15,39 @@ const AudioCardViewComponent = (props) => {
                         itemUuid='abcdefg'
                         isSpeakerIcon={true}
                         rippled={true}
-                        iconPrimaryColor='#0088ff'
-                        iconSecondaryColor='#5da297'
+                        iconPrimaryColor={props.primaryColor}
+                        iconSecondaryColor={props.secondaryColor}
                         playingUuid={playingUuid}
                         updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
-                        containerStyle={[{width: 58}, props.audioPosition == topLeft && styles.topLeftAudioPosition, props.audioPosition == topLeft && styles.shadow, props.audioButtonStyle]}
+                        containerStyle={[{width: 58}, audioPosition == topLeft && styles.topLeftAudioPosition, audioPosition == topLeft && styles.shadow, props.audioButtonContainerStyle]}
                         customIcon={props.customAudioIcon}
                         customIconSet={props.customAudioIconSet}
-                        // customIcon={<FAIcon/>}
-                        // customIconSet={{play: 'play-circle', pause: 'pause-circle', mute: 'repeat'}}
+                        buttonStyle={props.audioButtonStyle}
+                        iconStyle={props.audioIconStyle}
+                        rippleStyle={props.audioRippleStyle}
                       />
 
-    if (props.audioPosition == right || props.audioPosition == left)
-      return <View style={{justifyContent: 'center', borderWidth: 1}}>
-                {audioBtn}
-             </View>
+    if (audioPosition == right || audioPosition == left)
+      return <View style={{justifyContent: 'center'}}>{audioBtn}</View>
 
     return audioBtn
   }
   
+  const renderLabel = () => {
+    return <LabelComponent title={props.title} subTitle={props.subTitle} audioPosition={audioPosition}
+              labelContainerStyle={props.labelContainerStyle} titleStyle={props.titleStyle} subTitleStyle={props.subTitleStyle}
+           />
+  }
+
+  const disabledBg = { backgroundColor: props.disabledColor || '#CDCCCC' }
+
   return (
-    <TouchableOpacity style={[styles.container, styles.shadow, props.containerStyle]}>
-      { (props.audioPosition == right || props.audioPosition == topLeft) &&
-        <LabelComponent title={props.title} subTitle={props.subTitle} audioPosition={props.audioPosition}
-          labelContainerStyle={props.labelContainerStyle} titleStyle={props.titleStyle} subTitleStyle={props.subTitleStyle}
-        />
-      }
-
-      {!props.hideAudio && renderAudioBtn()}
-
-      { props.audioPosition == left &&
-        <LabelComponent title={props.title} subTitle={props.subTitle} audioPosition={props.audioPosition}
-          labelContainerStyle={props.labelContainerStyle} titleStyle={props.titleStyle} subTitleStyle={props.subTitleStyle}
-        />
-      }
+    <TouchableOpacity style={[styles.container, styles.shadow, props.containerStyle, props.disabled && disabledBg]}
+      onPress={() => !props.disabled && props.onPress()}
+    >
+      { (audioPosition == right || audioPosition == topLeft) && renderLabel() }
+      { renderAudioBtn() }
+      { audioPosition == left && renderLabel() }
     </TouchableOpacity>
   )
 }
@@ -55,35 +55,26 @@ const AudioCardViewComponent = (props) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    minHeight: 80,
+    borderRadius: 6,
+    elevation: 4,
+    flexDirection: 'row',
     height: 85,
-    width: '100%', elevation: 4, borderRadius: 6,
+    minHeight: 80,
     paddingHorizontal: 16,
-    flexDirection: 'row', borderWidth: 0,
+    width: '100%',
   },
   topLeftAudioPosition: {
     position: 'absolute',
+    left: 10,
     top: -30,
-    left: 10
   },
   shadow: {
+    elevation: 2,
     shadowColor: '#808080',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
     shadowRadius: 2,
-    elevation: 2
   }
 })
 
 export default AudioCardViewComponent
-
-// Todo:
-// 1. Option to show/hide shadow on the audio button        [done]
-// 2. Option to change the audio icon                  [done]
-// 3. Custom the style of the audio button (button, icon)            [done]
-// 4. Option to customize the style of card item              [done]
-// 5. Prepare the styles for each position of the audio button           [wip]
-// 6. Custom style for the title and the sub-title
-// 8. Add primary color, secondary color
-// 11. Separate the components
-// 12. Refactor the components
