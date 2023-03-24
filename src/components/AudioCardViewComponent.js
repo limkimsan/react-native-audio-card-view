@@ -6,25 +6,23 @@ import LabelComponent from './LabelComponent'
 import {topLeft, left, right} from '../constants/card_constant'
 
 const AudioCardViewComponent = (props) => {
-  const [playingUuid, setPlayingUuid] = React.useState(null)
   const audioPosition = props.audioPosition || topLeft
-
   const renderAudioBtn = () => {
     const audioBtn = <AudioPlayerButton
                         audio={props.audio}
-                        itemUuid='abcdefg'
+                        itemUuid={props.uuid}
                         isSpeakerIcon={true}
                         rippled={true}
                         iconPrimaryColor={props.primaryColor}
                         iconSecondaryColor={props.secondaryColor}
-                        playingUuid={playingUuid}
-                        updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
+                        playingUuid={props.playingUuid}
+                        updatePlayingUuid={(uuid) => props.updatePlayingUuid(uuid)}
                         containerStyle={[{width: 58}, audioPosition == topLeft && styles.topLeftAudioPosition, props.audioButtonContainerStyle]}
                         customIcon={props.customAudioIcon}
                         customIconSet={props.customAudioIconSet}
                         buttonStyle={[audioPosition == topLeft && styles.shadow, props.audioButtonStyle]}
                         iconStyle={props.audioIconStyle}
-                        rippleStyle={props.audioRippleStyle}
+                        rippleStyle={[{marginLeft: 0.7}, props.audioRippleStyle]}
                       />
 
     if (audioPosition == right || audioPosition == left)
@@ -42,7 +40,7 @@ const AudioCardViewComponent = (props) => {
   const disabledBg = { backgroundColor: props.disabledColor || '#CDCCCC' }
 
   return (
-    <TouchableOpacity style={[styles.container, styles.shadow, props.containerStyle, props.disabled && disabledBg]}
+    <TouchableOpacity style={[styles.container, {paddingHorizontal: props.audioPosition == topLeft ? 16 : 0}, styles.shadow, props.containerStyle, props.disabled && disabledBg]}
       onPress={() => !props.disabled && props.onPress()}
     >
       { (audioPosition == right || audioPosition == topLeft) && renderLabel() }
@@ -58,9 +56,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     elevation: 4,
     flexDirection: 'row',
-    height: 85,
-    minHeight: 80,
-    paddingHorizontal: 16,
+    minHeight: 90,
     width: '100%',
   },
   topLeftAudioPosition: {
