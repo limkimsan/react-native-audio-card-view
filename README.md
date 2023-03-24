@@ -66,7 +66,7 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 | audioButtonContainerStyle |    {...}    |  `style`  |   `true`   | Style of the audio button container                        |
 | audioButtonStyle          |    {...}    |  `style`  |   `true`   | Style of the audio button                                  |
 | audioIconStyle            |    {...}    |  `style`  |   `true`   | Style of the audio icon                                    |
-| auidoRippleStyle          |    {...}    |  `style`  |   `true`   | Style of the audio ripple animation while playing          |
+| audioRippleStyle          |    {...}    |  `style`  |   `true`   | Style of the audio ripple animation while playing          |
 
 #### Custom components
 | Prop               |               Default             |  Type  |  Optional  | Description                                          |
