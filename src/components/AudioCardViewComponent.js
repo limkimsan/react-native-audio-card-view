@@ -6,19 +6,17 @@ import LabelComponent from './LabelComponent'
 import {topLeft, left, right} from '../constants/card_constant'
 
 const AudioCardViewComponent = (props) => {
-  const [playingUuid, setPlayingUuid] = React.useState(null)
   const audioPosition = props.audioPosition || topLeft
-
   const renderAudioBtn = () => {
     const audioBtn = <AudioPlayerButton
                         audio={props.audio}
-                        itemUuid='abcdefg'
+                        itemUuid={props.uuid}
                         isSpeakerIcon={true}
                         rippled={true}
                         iconPrimaryColor={props.primaryColor}
                         iconSecondaryColor={props.secondaryColor}
-                        playingUuid={playingUuid}
-                        updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
+                        playingUuid={props.playingUuid}
+                        updatePlayingUuid={(uuid) => props.updatePlayingUuid(uuid)}
                         containerStyle={[{width: 58}, audioPosition == topLeft && styles.topLeftAudioPosition, props.audioButtonContainerStyle]}
                         customIcon={props.customAudioIcon}
                         customIconSet={props.customAudioIconSet}
