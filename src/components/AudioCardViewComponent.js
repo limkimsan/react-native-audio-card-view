@@ -1,7 +1,6 @@
 import React from 'react'
 import {Text, View, TouchableOpacity} from 'react-native'
 import AudioPlayerButton from 'react-native-audio-player-button'
-// import FAIcon from 'react-native-vector-icons/FontAwesome';
 
 import LabelComponent from './LabelComponent'
 import {topLeft, left, right} from '../constants/card_constant'
@@ -19,7 +18,9 @@ const AudioCardViewComponent = (props) => {
                         iconSecondaryColor='#5da297'
                         playingUuid={playingUuid}
                         updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
-                        containerStyle={[{width: 58}, props.audioPosition == topLeft && styles.topLeftAudioPosition, props.audioPosition == topLeft && styles.shadow]}
+                        containerStyle={[{width: 58}, props.audioPosition == topLeft && styles.topLeftAudioPosition, props.audioPosition == topLeft && styles.shadow, props.audioButtonStyle]}
+                        customIcon={props.customAudioIcon}
+                        customIconSet={props.customAudioIconSet}
                         // customIcon={<FAIcon/>}
                         // customIconSet={{play: 'play-circle', pause: 'pause-circle', mute: 'repeat'}}
                       />
@@ -40,7 +41,7 @@ const AudioCardViewComponent = (props) => {
         />
       }
 
-      {renderAudioBtn()}
+      {!props.hideAudio && renderAudioBtn()}
 
       { props.audioPosition == left &&
         <LabelComponent title={props.title} subTitle={props.subTitle} audioPosition={props.audioPosition}
@@ -77,11 +78,11 @@ const styles = StyleSheet.create({
 export default AudioCardViewComponent
 
 // Todo:
-// 1. Option to show/hide shadow on the audio button
-// 2. Option to change the audio icon
-// 3. Custom the style of the audio button (button, icon)
-// 4. Option to customize the style of card item
-// 5. Prepare the styles for each position of the audio button
+// 1. Option to show/hide shadow on the audio button        [done]
+// 2. Option to change the audio icon                  [done]
+// 3. Custom the style of the audio button (button, icon)            [done]
+// 4. Option to customize the style of card item              [done]
+// 5. Prepare the styles for each position of the audio button           [wip]
 // 6. Custom style for the title and the sub-title
 // 8. Add primary color, secondary color
 // 11. Separate the components
