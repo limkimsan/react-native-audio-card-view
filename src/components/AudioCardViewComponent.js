@@ -4,8 +4,10 @@ import AudioPlayerButton from 'react-native-audio-player-button'
 
 import LabelComponent from './LabelComponent'
 import {topLeft, left, right} from '../constants/card_constant'
+import cardStyleHelper from '../helpers/card_style_helper'
 
 const AudioCardViewComponent = (props) => {
+  const [titleLines, setTitleLines] = React.useState(1)
   const audioPosition = props.audioPosition || topLeft
   const renderAudioBtn = () => {
     const audioBtn = <AudioPlayerButton
@@ -34,13 +36,13 @@ const AudioCardViewComponent = (props) => {
   const renderLabel = () => {
     return <LabelComponent title={props.title} subTitle={props.subTitle} audioPosition={audioPosition}
               labelContainerStyle={props.labelContainerStyle} titleStyle={props.titleStyle} subTitleStyle={props.subTitleStyle}
+              updateTitleLines={(lines) => setTitleLines(lines)}
            />
   }
 
   const disabledBg = { backgroundColor: props.disabledColor || '#CDCCCC' }
-
   return (
-    <TouchableOpacity style={[styles.container, {paddingHorizontal: props.audioPosition == topLeft ? 16 : 0}, styles.shadow, props.containerStyle, props.disabled && disabledBg]}
+    <TouchableOpacity style={[styles.container, styles.shadow, cardStyleHelper.containerStyle(props.audioPosition, titleLines), props.containerStyle, props.disabled && disabledBg]}
       onPress={() => !props.disabled && props.onPress()}
     >
       { (audioPosition == right || audioPosition == topLeft) && renderLabel() }

@@ -1,6 +1,6 @@
 {
   "name": "react-native-audio-card-view",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -50,9 +50,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "dependencies": {
-    "react-native-audio-player-button": "^1.0.3"
-  },
   "devDependencies": {
     "@evilmartians/lefthook": "^1.2.2",
     "@commitlint/config-conventional": "^17.0.2",
@@ -74,7 +71,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-audio-player-button": "^1.0.3"
   },
   "engines": {
     "node": ">= 16.0.0"
