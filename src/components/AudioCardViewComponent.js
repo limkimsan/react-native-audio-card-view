@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, TouchableOpacity, StyleSheet} from 'react-native'
+import {View, TouchableOpacity, StyleSheet, Platform} from 'react-native'
 import AudioPlayerButton from 'react-native-audio-player-button'
 
 import LabelComponent from './LabelComponent'
@@ -19,10 +19,10 @@ const AudioCardViewComponent = (props) => {
                         iconSecondaryColor={props.secondaryColor}
                         playingUuid={playingUuid}
                         updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
-                        containerStyle={[{width: 58}, audioPosition == topLeft && styles.topLeftAudioPosition, audioPosition == topLeft && styles.shadow, props.audioButtonContainerStyle]}
+                        containerStyle={[{width: 58}, audioPosition == topLeft && styles.topLeftAudioPosition, props.audioButtonContainerStyle]}
                         customIcon={props.customAudioIcon}
                         customIconSet={props.customAudioIconSet}
-                        buttonStyle={props.audioButtonStyle}
+                        buttonStyle={[audioPosition == topLeft && styles.shadow, props.audioButtonStyle]}
                         iconStyle={props.audioIconStyle}
                         rippleStyle={props.audioRippleStyle}
                       />
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     top: -30,
   },
   shadow: {
-    elevation: 2,
+    elevation: Platform.OS == 'ios' ? 2 : 6,
     shadowColor: '#808080',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
