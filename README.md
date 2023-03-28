@@ -1,8 +1,7 @@
-# react-native-audio-player-button
-<span><img src="https://user-images.githubusercontent.com/18114944/227503561-20b7e92e-3f30-4358-b3e7-f11eddb570df.png" width="250" height="500" /></span>
-<span><img src="https://user-images.githubusercontent.com/18114944/227471933-93c5d32b-906f-4f83-9d11-7937bf78c34e.png" width="250" height="500" /></span>
+React Native Audio Card View is a card item with a title, a subtitle, and an audio player button.
 
-React Native Audio Card View is a card item with a title, a sub-title, and an audio player button.
+<span><img src="https://user-images.githubusercontent.com/18114944/227503561-20b7e92e-3f30-4358-b3e7-f11eddb570df.png" width="280" height="500" /></span>
+<span><img src="https://user-images.githubusercontent.com/18114944/227471933-93c5d32b-906f-4f83-9d11-7937bf78c34e.png" width="250" height="500" /></span>
 
 ## Support
 iOS & Android
@@ -31,11 +30,11 @@ import FAIcon from 'react-native-vector-icons/FontAwesome';
 //...
 const [playingUuid, setPlayingUuid] = React.useState(null);
 
-<AudioCardView audio={require('./app/assets/audios/20221104_7.1.mp3')}
+<AudioCardView audio={require('testing_audio.mp3')}
   audioPosition='top-left'
   containerStyle={{marginTop: 10, height: 120, width: '100%'}}
   title="Card item title"
-  subTitle="Card item sub-title"
+  subtitle="Card item subtitle"
   customIcon={<FAIcon/>}
   customIconSet={{play: 'play-circle', pause: 'pause-circle', mute: 'repeat'}}
   onPress={() => console.log('do something')}
@@ -47,7 +46,7 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 | :----------------- | :-----------: | :--------: | :--------: | :------------------------------------------------------------------------------------------- |
 | uuid               |      null     |  `string`  |   `false`  | A unique uuid of the audio or the uuid of the button (to prevent playing audio overlap)      |
 | title              |      null     |  `string`  |   `false`  | The title of the card item (maximum 2 lines)                                                 |
-| subTitle           |      null     |  `string`  |   `false`  | The sub-title of the card item (maximum 1 lines)                                             |
+| subtitle           |      null     |  `string`  |   `false`  | The subtitle of the card item (maximum 1 lines)                                             |
 | primaryColor       |   '#000000'   |  `string`  |   `true`   | The color of the audio icon before playing the audio                                         |
 | secondaryColor     |   '#808080'   |  `string`  |   `true`   | The color of the audio icon while playing the audio                                          |
 | audio              |      null     |   `.mp3`   |   `true`   | The audio file for playing                                                                   |
@@ -61,9 +60,9 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 | Prop                      |   Default   |   Type    |  Optional  | Description                                                |
 | :------------------------ | :---------: | :-------: | :--------: | :--------------------------------------------------------- |
 | containerStyle            |    {...}    |  `style`  |   `true`   | Style of the card item container                           |
-| labelContainerStyle       |    {...}    |  `style`  |   `true`   | Style of the title and sub-title container                 |
+| labelContainerStyle       |    {...}    |  `style`  |   `true`   | Style of the title and subtitle container                 |
 | titleStyle                |    {...}    |  `style`  |   `true`   | Style of the title                                         |
-| subTitleStyle             |    {...}    |  `style`  |   `true`   | Style of the sub-title                                     |
+| subtitleStyle             |    {...}    |  `style`  |   `true`   | Style of the subtitle                                      |
 | audioButtonContainerStyle |    {...}    |  `style`  |   `true`   | Style of the audio button container                        |
 | audioButtonStyle          |    {...}    |  `style`  |   `true`   | Style of the audio button                                  |
 | audioIconStyle            |    {...}    |  `style`  |   `true`   | Style of the audio icon                                    |

@@ -34,8 +34,8 @@ const AudioCardViewComponent = (props) => {
   }
   
   const renderLabel = () => {
-    return <LabelComponent title={props.title} subTitle={props.subTitle} audioPosition={audioPosition}
-              labelContainerStyle={props.labelContainerStyle} titleStyle={props.titleStyle} subTitleStyle={props.subTitleStyle}
+    return <LabelComponent title={props.title} subtitle={props.subtitle} audioPosition={audioPosition}
+              labelContainerStyle={props.labelContainerStyle} titleStyle={props.titleStyle} subtitleStyle={props.subtitleStyle}
               updateTitleLines={(lines) => setTitleLines(lines)}
            />
   }
