@@ -36,13 +36,15 @@ const AudioCardViewComponent = (props) => {
   const renderLabel = () => {
     return <LabelComponent title={props.title} subtitle={props.subtitle} audioPosition={audioPosition}
               labelContainerStyle={props.labelContainerStyle} titleStyle={props.titleStyle} subtitleStyle={props.subtitleStyle}
+              showDraggableIcon={props.showDraggableIcon} draggableIconContainerStyle={props.draggableIconContainerStyle}
+              draggableIconStyle={props.draggableIconStyle}
               updateTitleLines={(lines) => setTitleLines(lines)}
            />
   }
 
   const disabledBg = { backgroundColor: props.disabledColor || '#CDCCCC' }
   return (
-    <TouchableOpacity style={[styles.container, styles.shadow, cardStyleHelper.containerStyle(props.audioPosition, titleLines), props.containerStyle, props.disabled && disabledBg]}
+    <TouchableOpacity style={[styles.shadow, cardStyleHelper.containerStyle(props.audioPosition, titleLines, props.showDraggableIcon), props.containerStyle, props.disabled && disabledBg]}
       onPress={() => !props.disabled && props.onPress()}
     >
       { (audioPosition == right || audioPosition == topLeft) && renderLabel() }
@@ -53,14 +55,6 @@ const AudioCardViewComponent = (props) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white',
-    borderRadius: 6,
-    elevation: 4,
-    flexDirection: 'row',
-    minHeight: 90,
-    width: '100%',
-  },
   topLeftAudioPosition: {
     position: 'absolute',
     left: 10,

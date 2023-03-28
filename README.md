@@ -54,19 +54,22 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 | disabled           |     false     |  `boolean` |   `true`   | The disabled status of the card item                                                         |
 | disabledColor      |   '#CDCCCC'   |  `string`  |   `true`   | The background color of the card item when disabled                                          |
 | audioPosition      |   'top-left'  |  `string`  |   `true`   | The position of the audio button ('top-left', 'left', 'right')                               |
+| showDraggableIcon  |     false     |  `boolean` |   `true`   | To show the 3 dots icon to indicate the card is draggable                                    |
 
 #### Custom styles
 
-| Prop                      |   Default   |   Type    |  Optional  | Description                                                |
-| :------------------------ | :---------: | :-------: | :--------: | :--------------------------------------------------------- |
-| containerStyle            |    {...}    |  `style`  |   `true`   | Style of the card item container                           |
-| labelContainerStyle       |    {...}    |  `style`  |   `true`   | Style of the title and subtitle container                 |
-| titleStyle                |    {...}    |  `style`  |   `true`   | Style of the title                                         |
-| subtitleStyle             |    {...}    |  `style`  |   `true`   | Style of the subtitle                                      |
-| audioButtonContainerStyle |    {...}    |  `style`  |   `true`   | Style of the audio button container                        |
-| audioButtonStyle          |    {...}    |  `style`  |   `true`   | Style of the audio button                                  |
-| audioIconStyle            |    {...}    |  `style`  |   `true`   | Style of the audio icon                                    |
-| audioRippleStyle          |    {...}    |  `style`  |   `true`   | Style of the audio ripple animation while playing          |
+| Prop                        |   Default   |   Type    |  Optional  | Description                                                |
+| :-------------------------- | :---------: | :-------: | :--------: | :--------------------------------------------------------- |
+| containerStyle              |    {...}    |  `style`  |   `true`   | Style of the card item container                           |
+| labelContainerStyle         |    {...}    |  `style`  |   `true`   | Style of the title and subtitle container                  |
+| titleStyle                  |    {...}    |  `style`  |   `true`   | Style of the title                                         |
+| subtitleStyle               |    {...}    |  `style`  |   `true`   | Style of the subtitle                                      |
+| audioButtonContainerStyle   |    {...}    |  `style`  |   `true`   | Style of the audio button container                        |
+| audioButtonStyle            |    {...}    |  `style`  |   `true`   | Style of the audio button                                  |
+| audioIconStyle              |    {...}    |  `style`  |   `true`   | Style of the audio icon                                    |
+| audioRippleStyle            |    {...}    |  `style`  |   `true`   | Style of the audio ripple animation while playing          |
+| draggableIconContainerStyle |    {...}    |  `style`  |   `true`   | Style of the draggable icon container                      |
+| draggableIconStyle          |    {...}    |  `style`  |   `true`   | Style of the draggable icon                                |
 
 #### Custom components
 | Prop               |               Default             |  Type  |  Optional  | Description                                          |
