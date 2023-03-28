@@ -2,7 +2,7 @@
 <span><img src="https://user-images.githubusercontent.com/18114944/227503561-20b7e92e-3f30-4358-b3e7-f11eddb570df.png" width="250" height="500" /></span>
 <span><img src="https://user-images.githubusercontent.com/18114944/227471933-93c5d32b-906f-4f83-9d11-7937bf78c34e.png" width="250" height="500" /></span>
 
-React Native Audio Card View is a card item with title, sub-title and an audio player button.
+React Native Audio Card View is a card item with a title, a sub-title, and an audio player button.
 
 ## Support
 iOS & Android
