@@ -13,7 +13,7 @@ const LabelComponent = (props) => {
             >
               {props.title}
             </Text>
-            <Text style={[{fontSize: 14, color: '#808080', marginTop: 4}, props.subTitleStyle]} numberOfLines={1}>{props.subTitle}</Text>
+            <Text style={[{fontSize: 14, color: '#808080', marginTop: 4}, props.subtitleStyle]} numberOfLines={1}>{props.subtitle}</Text>
          </View>
 }
 
