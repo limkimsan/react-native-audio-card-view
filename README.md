@@ -55,6 +55,7 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 | disabledColor      |   '#CDCCCC'   |  `string`  |   `true`   | The background color of the card item when disabled                                          |
 | audioPosition      |   'top-left'  |  `string`  |   `true`   | The position of the audio button ('top-left', 'left', 'right')                               |
 | showDraggableIcon  |     false     |  `boolean` |   `true`   | To show the 3 dots icon to indicate the card is draggable                                    |
+| hideAudioPlayer    |     false     |  `boolean` |   `true`   | To hide the audio player button                                                              |
 
 #### Custom styles
 
@@ -77,6 +78,13 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 | customAudioIcon    |                {...}              | `comp` |   `true`   | Custom audio icon component                          |
 | customAudioIconSet | {{play: '', pause: '', mute: ''}} | `hash` |   `true`   | A hash of the custom icon names                      |
 
+#### Child component
+
+```js
+<AudioCardView {...props}>
+  <Text>Child component</Text>
+</AudioCardView>
+```
 
 #### Events
 
