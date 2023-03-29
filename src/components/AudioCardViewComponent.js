@@ -47,9 +47,9 @@ const AudioCardViewComponent = (props) => {
     <TouchableOpacity style={[styles.shadow, cardStyleHelper.containerStyle(props.audioPosition, titleLines, props.showDraggableIcon), props.containerStyle, props.disabled && disabledBg]}
       onPress={() => !props.disabled && props.onPress()}
     >
-      { (audioPosition == right || audioPosition == topLeft) && renderLabel() }
-      { renderAudioBtn() }
-      { audioPosition == left && renderLabel() }
+      { (audioPosition == right || audioPosition == topLeft) && (props.children || renderLabel()) }
+      { !props.hideAudioPlayer && renderAudioBtn() }
+      { audioPosition == left && (props.children || renderLabel()) }
     </TouchableOpacity>
   )
 }
