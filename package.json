@@ -1,6 +1,6 @@
 {
   "name": "react-native-audio-card-view",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A card item with a title, a subtitle, and an audio player button",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

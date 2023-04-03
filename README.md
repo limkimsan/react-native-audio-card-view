@@ -24,13 +24,14 @@ npm install react-native-vector-icons react-native-sound react-native-audio-play
 ## Usage
 
 ```js
-import AudioPlayerButton from 'react-native-audio-player-button';
+import AudioCardView from 'react-native-audio-card-view';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 
 //...
 const [playingUuid, setPlayingUuid] = React.useState(null);
 
-<AudioCardView audio={require('testing_audio.mp3')}
+<AudioCardView
+  audio={require('testing_audio.mp3')}
   audioPosition='top-left'
   containerStyle={{marginTop: 10, height: 120, width: '100%'}}
   title="Card item title"
