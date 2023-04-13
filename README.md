@@ -47,7 +47,7 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 | :----------------- | :-----------: | :--------: | :--------: | :------------------------------------------------------------------------------------------- |
 | uuid               |      null     |  `string`  |   `false`  | A unique uuid of the audio or the uuid of the button (to prevent playing audio overlap)      |
 | title              |      null     |  `string`  |   `false`  | The title of the card item (maximum 2 lines)                                                 |
-| subtitle           |      null     |  `string`  |   `false`  | The subtitle of the card item (maximum 1 lines)                                             |
+| subtitle           |      null     |  `string`  |   `false`  | The subtitle of the card item (maximum 1 lines)                                              |
 | primaryColor       |   '#000000'   |  `string`  |   `true`   | The color of the audio icon before playing the audio                                         |
 | secondaryColor     |   '#808080'   |  `string`  |   `true`   | The color of the audio icon while playing the audio                                          |
 | audio              |      null     |   `.mp3`   |   `true`   | The audio file for playing                                                                   |
@@ -57,6 +57,7 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 | audioPosition      |   'top-left'  |  `string`  |   `true`   | The position of the audio button ('top-left', 'left', 'right')                               |
 | showDraggableIcon  |     false     |  `boolean` |   `true`   | To show the 3 dots icon to indicate the card is draggable                                    |
 | hideAudioPlayer    |     false     |  `boolean` |   `true`   | To hide the audio player button                                                              |
+| isFromAppBundle    |     false     |  `boolean` |   `true`   | Set to `true` to play the audio that is stored in the app bundle (ex: the downloaded audio)  |
 
 #### Custom styles
 

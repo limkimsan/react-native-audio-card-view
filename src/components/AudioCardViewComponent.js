@@ -25,6 +25,7 @@ const AudioCardViewComponent = (props) => {
                         buttonStyle={[audioPosition == topLeft && styles.shadow, props.audioButtonStyle]}
                         iconStyle={props.audioIconStyle}
                         rippleStyle={[{marginLeft: 0.7}, props.audioRippleStyle]}
+                        isFromAppBundle={props.isFromAppBundle}
                       />
 
     if (audioPosition == right || audioPosition == left)
