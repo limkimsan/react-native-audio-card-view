@@ -73,6 +73,8 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 | audioRippleStyle            |    {...}    |  `style`  |   `true`   | Style of the audio ripple animation while playing          |
 | draggableIconContainerStyle |    {...}    |  `style`  |   `true`   | Style of the draggable icon container                      |
 | draggableIconStyle          |    {...}    |  `style`  |   `true`   | Style of the draggable icon                                |
+| customNotPlayingIconStyle   |    {...}    |  `style`  |   `true`   | Style of the audio icon when is not playing                |
+| customPlayingIconStyle      |    {...}    |  `style`  |   `true`   | Style of the audio icon while playing                      |
 
 #### Custom components
 | Prop               |               Default             |  Type  |  Optional  | Description                                          |
@@ -94,6 +96,7 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 | :---------------- | :-------: | :-------: | :--------: | :------------------------------------------------------------------- |
 | updatePlayingUuid |   {...}   |  `event`  |  `false`   | On press the button, to update the uuid of the playing item          |
 | onPress           |   {...}   |  `event`  |  `true`    | Event when pressing the card item                                    |
+| onLongPress       |   {...}   |  `event`  |  `true`    | Event when long pressing the card item                               |
 
 ## Contributing
 

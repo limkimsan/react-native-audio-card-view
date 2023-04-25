@@ -26,6 +26,8 @@ const AudioCardViewComponent = (props) => {
                         iconStyle={props.audioIconStyle}
                         rippleStyle={[{marginLeft: 0.7}, props.audioRippleStyle]}
                         isFromAppBundle={props.isFromAppBundle}
+                        customNotPlayingIconStyle={props.customNotPlayingIconStyle}
+                        customPlayingIconStyle={props.customPlayingIconStyle}
                       />
 
     if (audioPosition == right || audioPosition == left)
@@ -47,6 +49,7 @@ const AudioCardViewComponent = (props) => {
   return (
     <TouchableOpacity style={[styles.shadow, cardStyleHelper.containerStyle(props.audioPosition, titleLines, props.showDraggableIcon), props.containerStyle, props.disabled && disabledBg]}
       onPress={() => !props.disabled && props.onPress()}
+      onLongPress={() => (!props.disabled && !!props.onLongPress) && props.onLongPress()}
     >
       { (audioPosition == right || audioPosition == topLeft) && (props.children || renderLabel()) }
       { !props.hideAudioPlayer && renderAudioBtn() }

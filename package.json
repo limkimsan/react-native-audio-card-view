@@ -1,6 +1,6 @@
 {
   "name": "react-native-audio-card-view",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A card item with a title, a subtitle, and an audio player button",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -73,7 +73,7 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
-    "react-native-audio-player-button": "^1.0.6"
+    "react-native-audio-player-button": "^1.0.7"
   },
   "engines": {
     "node": ">= 16.0.0"
