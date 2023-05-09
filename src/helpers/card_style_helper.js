@@ -6,7 +6,7 @@ const cardStyleHelper = (() => {
     draggableIconStyle
   }
 
-  function containerStyle(audioPosition, titleLines, showDraggableIcon) {
+  function containerStyle(audioPosition, titleLines, showDraggableIcon, allowFlexibleHeight) {
     const paddingStyles = {
       'top-left': {paddingHorizontal: 16},
       'left': {paddingLeft: 6, paddingRight: showDraggableIcon ? 10 : 16},
@@ -17,9 +17,12 @@ const cardStyleHelper = (() => {
       borderRadius: 6,
       elevation: 4,
       flexDirection: 'row',
-      height: titleLines == 1 ? 90 : 105,
-      minHeight: 90,
       width: '100%',
+    }
+
+    if (!allowFlexibleHeight) {
+      styles.height = titleLines == 1 ? 90 : 105
+      styles.minHeight = 90
     }
 
     return {...styles, ...paddingStyles[audioPosition]}

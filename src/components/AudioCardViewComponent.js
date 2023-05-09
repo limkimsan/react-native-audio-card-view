@@ -47,7 +47,7 @@ const AudioCardViewComponent = (props) => {
 
   const disabledBg = { backgroundColor: props.disabledColor || '#CDCCCC' }
   return (
-    <TouchableOpacity style={[styles.shadow, cardStyleHelper.containerStyle(props.audioPosition, titleLines, props.showDraggableIcon), props.containerStyle, props.disabled && disabledBg]}
+    <TouchableOpacity style={[styles.shadow, cardStyleHelper.containerStyle(props.audioPosition, titleLines, props.showDraggableIcon, props.allowFlexibleHeight), props.containerStyle, props.disabled && disabledBg]}
       onPress={() => !props.disabled && props.onPress()}
       onLongPress={() => (!props.disabled && !!props.onLongPress) && props.onLongPress()}
     >

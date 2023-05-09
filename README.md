@@ -43,21 +43,22 @@ const [playingUuid, setPlayingUuid] = React.useState(null);
 ```
 ## Properties
 #### Basic
-| Prop               |    Default    |    Type    |  Optional  | Description                                                                                  |
-| :----------------- | :-----------: | :--------: | :--------: | :------------------------------------------------------------------------------------------- |
-| uuid               |      null     |  `string`  |   `false`  | A unique uuid of the audio or the uuid of the button (to prevent playing audio overlap)      |
-| title              |      null     |  `string`  |   `false`  | The title of the card item (maximum 2 lines)                                                 |
-| subtitle           |      null     |  `string`  |   `false`  | The subtitle of the card item (maximum 1 lines)                                              |
-| primaryColor       |   '#000000'   |  `string`  |   `true`   | The color of the audio icon before playing the audio                                         |
-| secondaryColor     |   '#808080'   |  `string`  |   `true`   | The color of the audio icon while playing the audio                                          |
-| audio              |      null     |   `.mp3`   |   `true`   | The audio file for playing                                                                   |
-| playingUuid        |      null     |  `string`  |   `true`   | The uuid of the playing audio                                                                |
-| disabled           |     false     |  `boolean` |   `true`   | The disabled status of the card item                                                         |
-| disabledColor      |   '#CDCCCC'   |  `string`  |   `true`   | The background color of the card item when disabled                                          |
-| audioPosition      |   'top-left'  |  `string`  |   `true`   | The position of the audio button ('top-left', 'left', 'right')                               |
-| showDraggableIcon  |     false     |  `boolean` |   `true`   | To show the 3 dots icon to indicate the card is draggable                                    |
-| hideAudioPlayer    |     false     |  `boolean` |   `true`   | To hide the audio player button                                                              |
-| isFromAppBundle    |     false     |  `boolean` |   `true`   | Set to `true` to play the audio that is stored in the app bundle (ex: the downloaded audio)  |
+| Prop                |    Default    |    Type    |  Optional  | Description                                                                                  |
+| :------------------ | :-----------: | :--------: | :--------: | :------------------------------------------------------------------------------------------- |
+| uuid                |      null     |  `string`  |   `false`  | A unique uuid of the audio or the uuid of the button (to prevent playing audio overlap)      |
+| title               |      null     |  `string`  |   `false`  | The title of the card item (maximum 2 lines)                                                 |
+| subtitle            |      null     |  `string`  |   `false`  | The subtitle of the card item (maximum 1 lines)                                              |
+| primaryColor        |   '#000000'   |  `string`  |   `true`   | The color of the audio icon before playing the audio                                         |
+| secondaryColor      |   '#808080'   |  `string`  |   `true`   | The color of the audio icon while playing the audio                                          |
+| audio               |      null     |   `.mp3`   |   `true`   | The audio file for playing                                                                   |
+| playingUuid         |      null     |  `string`  |   `true`   | The uuid of the playing audio                                                                |
+| disabled            |     false     |  `boolean` |   `true`   | The disabled status of the card item                                                         |
+| disabledColor       |   '#CDCCCC'   |  `string`  |   `true`   | The background color of the card item when disabled                                          |
+| audioPosition       |   'top-left'  |  `string`  |   `true`   | The position of the audio button ('top-left', 'left', 'right')                               |
+| showDraggableIcon   |     false     |  `boolean` |   `true`   | To show the 3 dots icon to indicate the card is draggable                                    |
+| hideAudioPlayer     |     false     |  `boolean` |   `true`   | To hide the audio player button                                                              |
+| isFromAppBundle     |     false     |  `boolean` |   `true`   | Set to `true` to play the audio that is stored in the app bundle (ex: the downloaded audio)  |
+| allowFlexibleHeight |     false     |  `boolean` |   `true`   | Set to `true` to make the card height flexible based on the length of the title              |
 
 #### Custom styles
 
